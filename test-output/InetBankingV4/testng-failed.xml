@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [InetBankingV4]" parallel="classes">
+  <parameter name="browser" value="firefox"/>
+  <listeners>
+    <listener class-name="com.inetBankingV4.utilities.Reporting"/>
+  </listeners>
+  <test name="BankingAppChromeTest">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.inetBankingV4.testCases.TC_LoginDDT_002"/>
+    </classes>
+  </test> <!-- BankingAppChromeTest -->
+  <test name="BankingAppFirefoxTest">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.inetBankingV4.testCases.TC_LoginDDT_002"/>
+    </classes>
+  </test> <!-- BankingAppFirefoxTest -->
+  <test name="BankingAppChromeTest(failed)" parallel="classes">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.inetBankingV4.testCases.TC_LoginDDT_002">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="loginTest" invocation-numbers="1 2 4"/>
+        </methods>
+      </class> <!-- com.inetBankingV4.testCases.TC_LoginDDT_002 -->
+    </classes>
+  </test> <!-- BankingAppChromeTest(failed) -->
+  <test name="BankingAppFirefoxTest(failed)" parallel="classes">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.inetBankingV4.testCases.TC_LoginDDT_002">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="setUp"/>
+          <include name="loginTest" invocation-numbers="1 2 4"/>
+        </methods>
+      </class> <!-- com.inetBankingV4.testCases.TC_LoginDDT_002 -->
+    </classes>
+  </test> <!-- BankingAppFirefoxTest(failed) -->
+</suite> <!-- Failed suite [InetBankingV4] -->
